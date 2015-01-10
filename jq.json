@@ -1,0 +1,28 @@
+{
+    "name": "dry",
+    "version": "0.1.0",
+    "description": "Don't repeat yourself!",
+    "homepage": "https://github.com/joelpurra/jq-dry",
+    "bugs": "https://github.com/joelpurra/jq-dry/issues",
+    "author": {
+        "name": "Joel Purra",
+        "url": "http://joelpurra.com/"
+    },
+    "main": "./jq/main.jq",
+    "repository": {
+        "type": "git",
+        "url": "git://github.com/joelpurra/jq-dry.git"
+    },
+    "dependencies": {},
+    "engines": {
+        "jq": "^1.5.0",
+        "jqnpm": "^1.0.0"
+    },
+    "licenses": [{
+        "type": "MIT",
+        "url": "http://opensource.org/licenses/MIT"
+    }],
+    "keywords": [
+        "jq-package"
+    ]
+}
