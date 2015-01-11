@@ -22,6 +22,12 @@ jqnpm install joelpurra/jq-dry
 ```jq
 import "joelpurra/jq-dry" as DRY;
 
+# The general case: 'n' is the number of iterations:
+# DRY::iterate(n; f)
+# Can read both index and value in 'f': [ <iteration index>, <previous value> ]
+"a" | iterate(1; .[1] + .[1] + (.[0] | tostring))         # [ 0, "aa0" ]
+"a" | iterate(2; .[1] + .[1] + (.[0] | tostring))         # [ 1, "aa0aa01" ]
+
 # The general case: 'n' is the number of repetitions:
 # DRY::repeat(n; f)
 "YO" | DRY::repeat(3; . + "LO")                           # "YOLOLOLO"
@@ -92,7 +98,7 @@ import "joelpurra/jq-dry" as DRY;
 [ 0, 1 ] | DRY::repeat(5; [ .[1], ( .[0] + .[1] ) ] ) | .[0]    # 5
 [ 0, 1 ] | DRY::repeat(6; [ .[1], ( .[0] + .[1] ) ] ) | .[0]    # 8
 
-# Or the equivalent function:
+# Or the equivalent function and iteration:
 def fib($n):
 	[ 0, 1 ]
 	| DRY::repeat(
@@ -106,6 +112,12 @@ def fib($n):
 		]
 	)
 	| .[0];
+
+# In terms of number of calculations this is a poor implementation.
+# Again -- better examples welcome =)
+[]
+| DRY::iterate(7; .[1] + [ fib(.[0]) ])
+| .[1]
 ```
 
 

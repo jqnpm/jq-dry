@@ -5,6 +5,36 @@ fileUnderTest="${BASH_SOURCE%/*}/../jq/main.jq"
 
 # TODO: more inspired tests.
 read -d '' fourLineTests <<-'EOF' || true
+iterate: Can iterate no times.
+"a"
+iterate(0; .[1] + "b")
+[ -1, "a" ]
+
+iterate: Can iterate one time.
+"a"
+iterate(1; .[1] + "b")
+[ 0, "ab" ]
+
+iterate: Can iterate two times.
+"a"
+iterate(2; .[1] + "b")
+[ 1, "abb" ]
+
+iterate: Can read both index and value.
+"a"
+iterate(1; .[1] + .[1] + (.[0] | tostring))
+[ 0, "aa0" ]
+
+iterate: Can read both index and value 2 times.
+"a"
+iterate(2; .[1] + .[1] + (.[0] | tostring))
+[ 1, "aa0aa01" ]
+
+iterate: Can read both index and value 3 times.
+"a"
+iterate(3; .[1] + .[1] + (.[0] | tostring))
+[ 2, "aa0aa01aa0aa012" ]
+
 repeat: Can YOLO from the right.
 "YO"
 repeat(3; . + "LO")

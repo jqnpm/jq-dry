@@ -1,8 +1,16 @@
-def repeat($n; f):
+def iterate($n; f):
 	reduce range($n) as $i (
-		.;
-		f
+		[
+			-1,
+			.
+		];
+		.[0] = $i
+		| .[1] = f
 	);
+
+def repeat($n; f):
+	iterate($n; .[1] | f)
+	| .[1];
 
 # Wrap some jq built-ins which make sense to repeat.
 #
