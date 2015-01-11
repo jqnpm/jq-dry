@@ -157,7 +157,7 @@ repeat(2; { "a": repeat(2; { "b": . }) } )
 
 repeat: Fibonacci 0
 [ 0, 1 ]
-repeat(0; [ .[1], ( .[0] + .[1] ) ] ) | .[1]
+repeat(0; [ .[1], ( .[0] + .[1] ) ] ) | .[0]
 0
 
 repeat: Fibonacci 1
