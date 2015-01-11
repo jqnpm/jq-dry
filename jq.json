@@ -1,6 +1,6 @@
 {
     "name": "dry",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "description": "Don't repeat yourself!",
     "homepage": "https://github.com/joelpurra/jq-dry",
     "bugs": "https://github.com/joelpurra/jq-dry/issues",
