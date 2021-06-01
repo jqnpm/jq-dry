@@ -6,6 +6,14 @@
 
 Don't repeat yourself!
 
+
+
+> ## ⚠️ This project has been archived
+>
+> No future updates are planned. Feel free to continue using it, but expect no support.
+
+
+
 Apply a filter `f` to its own output `n` times. Can be used to apply filters `n` recursive levels, to build deep objects and for arithmetic.
 
 This is a package for the command-line JSON processor [`jq`](https://stedolan.github.io/jq/). Install the package in your jq project/package directory with [`jqnpm`](https://github.com/joelpurra/jqnpm):
